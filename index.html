@@ -5,1110 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SuPav Speech Therapy & Hearing Aid Clinic | Ghaziabad</title>
     <meta name="description" content="SuPav Speech Therapy & Hearing Aid Clinic in Ghaziabad offers comprehensive audiometry, hearing aid services, speech therapy, and more.">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        :root {
-            --primary: #4A90E2;
-            --secondary: #50C878;
-            --accent: #7B68EE;
-            --text: #2C3E50;
-            --text-light: #6B7280;
-            --bg: #FFFFFF;
-            --bg-light: #F7F9FC;
-            --shadow: rgba(74, 144, 226, 0.1);
-        }
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Page Transition */
-        .page {
-            display: none;
-            animation: fadeIn 0.6s ease-in-out;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px var(--shadow);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            padding: 0.5rem 0;
-            box-shadow: 0 4px 30px var(--shadow);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 3rem;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .logo-icon {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 15px var(--shadow);
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-            align-items: center;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 600;
-            font-size: 0.95rem;
-            position: relative;
-            padding: 0.5rem 0;
-            transition: color 0.3s ease;
-        }
-
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            transition: width 0.3s ease;
-            border-radius: 2px;
-        }
-
-        .nav-menu a:hover,
-        .nav-menu a.active {
-            color: var(--primary);
-        }
-
-        .nav-menu a:hover::after,
-        .nav-menu a.active::after {
-            width: 100%;
-        }
-
-        .nav-cta {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white !important;
-            padding: 0.7rem 1.8rem !important;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px var(--shadow);
-        }
-
-        .nav-cta::after {
-            display: none;
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(74, 144, 226, 0.3);
-        }
-
-        .mobile-toggle {
-            display: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: var(--primary);
-        }
-
-        
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            padding-top: 80px;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') bottom/cover no-repeat;
-            animation: waveMove 15s ease-in-out infinite;
-        }
-
-        @keyframes waveMove {
-            0%, 100% { transform: translateX(0) translateY(0); }
-            50% { transform: translateX(-50px) translateY(-20px); }
-        }
-
-        .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 3rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-text {
-            color: white;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-            backdrop-filter: blur(10px);
-            animation: fadeInDown 0.8s ease;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            animation: fadeInUp 0.8s ease 0.2s both;
-        }
-
-        .hero-subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            animation: fadeInUp 0.8s ease 0.4s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-contact {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 2.5rem;
-            animation: fadeInUp 0.8s ease 0.6s both;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(10px);
-            animation: pulse 2s ease infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease 0.8s both;
-        }
-
-        .btn {
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .btn:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .btn span {
-            position: relative;
-            z-index: 1;
-        }
-
-        .btn-primary {
-            background: white;
-            color: var(--primary);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: var(--primary);
-        }
-
-        .hero-image {
-            position: relative;
-            animation: fadeInRight 1s ease;
-        }
-
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .hero-img-container {
-            position: relative;
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .hero-img-container img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .floating-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            pointer-events: none;
-        }
-
-        .floating-icon {
-            position: absolute;
-            font-size: 3rem;
-            animation: floatAround 8s ease-in-out infinite;
-        }
-
-        @keyframes floatAround {
-            0%, 100% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-            25% {
-                transform: translate(30px, -30px) rotate(90deg);
-            }
-            50% {
-                transform: translate(0, -60px) rotate(180deg);
-            }
-            75% {
-                transform: translate(-30px, -30px) rotate(270deg);
-            }
-        }
-
-        .floating-icon:nth-child(1) {
-            top: 10%;
-            left: 5%;
-            animation-delay: 0s;
-        }
-
-        .floating-icon:nth-child(2) {
-            top: 60%;
-            right: 10%;
-            animation-delay: 2s;
-        }
-
-        .floating-icon:nth-child(3) {
-            bottom: 15%;
-            left: 15%;
-            animation-delay: 4s;
-        }
-
-        /* Services Section */
-        .services-section {
-            padding: 100px 3rem;
-            background: var(--bg-light);
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 4rem;
-        }
-
-        .section-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .section-title {
-            font-size: 3rem;
-            color: var(--text);
-            margin-bottom: 1rem;
-        }
-
-        .section-description {
-            font-size: 1.1rem;
-            color: var(--text-light);
-        }
-
-        .services-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px var(--shadow);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            opacity: 0;
-            transform: translateY(50px);
-        }
-
-        .service-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .service-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(74, 144, 226, 0.25);
-        }
-
-        .service-image {
-            width: 100%;
-            height: 220px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.1)"/></svg>');
-            animation: rotate 20s linear infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .service-content {
-            padding: 2rem;
-        }
-
-        .service-content h3 {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .service-content p {
-            color: var(--text-light);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-link {
-            color: var(--primary);
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: gap 0.3s ease;
-        }
-
-        .service-link:hover {
-            gap: 1rem;
-        }
-
-        /* About Section */
-        .about-section {
-            padding: 100px 3rem;
-            background: white;
-        }
-
-        .about-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-        }
-
-        .about-image-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .about-img {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px var(--shadow);
-            transition: transform 0.4s ease;
-        }
-
-        .about-img:hover {
-            transform: scale(1.05);
-        }
-
-        .about-img img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .about-img.large {
-            grid-column: span 2;
-        }
-
-        .about-img.large img {
-            height: 350px;
-        }
-
-        .about-text h3 {
-            font-size: 2.5rem;
-            color: var(--text);
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text p {
-            color: var(--text-light);
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .about-features {
-            display: grid;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: start;
-            gap: 1rem;
-        }
-
-        .feature-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .feature-text h4 {
-            color: var(--text);
-            margin-bottom: 0.5rem;
-        }
-
-        .feature-text p {
-            color: var(--text-light);
-            margin: 0;
-            font-size: 0.95rem;
-        }
-
-        /* Gallery Section */
-        .gallery-section {
-            padding: 100px 3rem;
-            background: var(--bg-light);
-        }
-
-        .gallery-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            height: 350px;
-            cursor: pointer;
-            box-shadow: 0 10px 30px var(--shadow);
-            transition: all 0.4s ease;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 50px rgba(74, 144, 226, 0.3);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            padding: 2rem;
-            color: white;
-            transform: translateY(100%);
-            transition: transform 0.4s ease;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
-        }
-
-        .gallery-overlay h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Testimonials */
-        .testimonials-section {
-            padding: 100px 3rem;
-            background: white;
-        }
-
-        .testimonials-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .testimonial-card {
-            background: var(--bg-light);
-            padding: 3rem;
-            border-radius: 20px;
-            position: relative;
-            box-shadow: 0 10px 30px var(--shadow);
-            transition: all 0.4s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(74, 144, 226, 0.2);
-        }
-
-        .quote-icon {
-            font-size: 4rem;
-            color: var(--primary);
-            opacity: 0.2;
-            position: absolute;
-            top: 20px;
-            left: 20px;
-        }
-
-        .testimonial-text {
-            font-size: 1.1rem;
-            color: var(--text);
-            line-height: 1.8;
-            margin-bottom: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .author-avatar {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .author-info h4 {
-            color: var(--text);
-            margin-bottom: 0.3rem;
-        }
-
-        .author-info p {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        .rating {
-            color: #FFC107;
-            font-size: 1.2rem;
-            margin-top: 0.5rem;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            padding: 100px 3rem;
-            background: var(--bg-light);
-        }
-
-        .contact-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 4rem;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .info-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px var(--shadow);
-            transition: all 0.3s ease;
-        }
-
-        .info-card:hover {
-            transform: translateX(10px);
-            box-shadow: 0 15px 40px rgba(74, 144, 226, 0.2);
-        }
-
-        .info-card-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .info-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .info-card h3 {
-            color: var(--text);
-            font-size: 1.3rem;
-        }
-
-        .info-card p {
-            color: var(--text-light);
-            line-height: 1.8;
-            margin: 0;
-        }
-
-        .contact-form {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px var(--shadow);
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            color: var(--text);
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #E5E7EB;
-            border-radius: 12px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            font-family: inherit;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 1.2rem;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(74, 144, 226, 0.4);
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 4rem 3rem 2rem;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-section h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.8rem;
-            transition: all 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: white;
-            transform: translateX(5px);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-icon {
-            width: 45px;
-            height: 45px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .social-icon:hover {
-            background: white;
-            color: var(--primary);
-            transform: translateY(-5px);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-container {
-                padding: 1rem 1.5rem;
-            }
-
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 70px;
-                flex-direction: column;
-                background: white;
-                width: 100%;
-                text-align: center;
-                transition: left 0.3s;
-                box-shadow: 0 10px 30px var(--shadow);
-                padding: 2rem 0;
-                gap: 1rem;
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .mobile-toggle {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .services-grid,
-            .gallery-grid,
-            .testimonials-container {
-                grid-template-columns: 1fr;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .about-image-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-img.large {
-                grid-column: span 1;
-            }
-        }
-
-        /* Loading Animation */
-        .loading {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-
-        .loading.hide {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .spinner {
-            width: 60px;
-            height: 60px;
-            border: 5px solid var(--bg-light);
-            border-top: 5px solid var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-    </style>
 </head>
+
 <body>
     <!-- Loading Screen -->
     <div class="loading" id="loading">
@@ -1136,6 +39,7 @@
 
     <!-- Home Page -->
     <div class="page active" id="home">
+
         <!-- Hero Section -->
         <section class="hero">
             <div class="floating-elements">
@@ -1157,6 +61,7 @@
                         <a href="#" class="btn btn-secondary" onclick="showPage('services')"><span>Our Services</span></a>
                     </div>
                 </div>
+
                 <div class="hero-image">
                     <div class="hero-img-container">
                         <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=600&h=500&fit=crop" alt="Modern hearing clinic reception area with professional medical equipment">
@@ -1165,84 +70,84 @@
             </div>
         </section>
 
-        <!-- Quick Services Preview -->
+        <!-- Services Preview -->
         <section class="services-section">
-    <div class="section-header">
-        <div class="section-badge">Our Expertise</div>
-        <h2 class="section-title">Comprehensive Services</h2>
-        <p class="section-description">We offer a complete range of hearing and speech therapy services using the latest technology and evidence-based practices.</p>
-    </div>
+            <div class="section-header">
+                <div class="section-badge">Our Expertise</div>
+                <h2 class="section-title">Comprehensive Services</h2>
+                <p class="section-description">We offer a complete range of hearing and speech therapy services using the latest technology and evidence-based practices.</p>
+            </div>
 
-    <div class="services-grid">
+            <div class="services-grid">
 
-        <div class="service-card">
-            <div class="service-image">
-                <img src="images/pure-tone.jpg" alt="Pure Tone Audiometry" />
-            </div>
-            <div class="service-content">
-                <h3>Pure Tone Audiometry</h3>
-                <p>Comprehensive hearing assessment using advanced audiometric testing to accurately determine hearing thresholds and identify patterns of hearing loss.</p>
-                <a href="#" class="service-link" onclick="showPage('services')">Learn More →</a>
-            </div>
-        </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/pure-tone.jpg" alt="Pure Tone Audiometry" />
+                    </div>
+                    <div class="service-content">
+                        <h3>Pure Tone Audiometry</h3>
+                        <p>Comprehensive hearing assessment using advanced audiometric testing to accurately determine hearing thresholds and identify patterns of hearing loss.</p>
+                        <a href="#" class="service-link" onclick="showPage('services')">Learn More →</a>
+                    </div>
+                </div>
 
-        <div class="service-card">
-            <div class="service-image">
-                <img src="images/bera.jpg" alt="BERA ASSR OAE" />
-            </div>
-            <div class="service-content">
-                <h3>B.E.R.A/ASSR/OAE</h3>
-                <p>Advanced electrophysiological testing for infants, children, and non-cooperative patients to assess auditory pathway function accurately.</p>
-                <a href="#" class="service-link" onclick="showPage('services')">Learn More →</a>
-            </div>
-        </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/bera.jpg" alt="BERA ASSR OAE" />
+                    </div>
+                    <div class="service-content">
+                        <h3>B.E.R.A/ASSR/OAE</h3>
+                        <p>Advanced electrophysiological testing for infants, children, and non-cooperative patients to assess auditory pathway function accurately.</p>
+                        <a href="#" class="service-link" onclick="showPage('services')">Learn More →</a>
+                    </div>
+                </div>
 
-        <div class="service-card">
-            <div class="service-image">
-                <img src="images/hearing-aid.jpg" alt="Hearing Aid Services" />
-            </div>
-            <div class="service-content">
-                <h3>Hearing Aid Services</h3>
-                <p>Complete hearing aid solutions including selection, fitting, programming, repair, and maintenance for all major brands and types.</p>
-                <a href="#" class="service-link" onclick="showPage('services')">Learn More →</a>
-            </div>
-        </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/hearing-aid.jpg" alt="Hearing Aid Services" />
+                    </div>
+                    <div class="service-content">
+                        <h3>Hearing Aid Services</h3>
+                        <p>Complete hearing aid solutions including selection, fitting, programming, repair, and maintenance for all major brands and types.</p>
+                        <a href="#" class="service-link" onclick="showPage('services')">Learn More →</a>
+                    </div>
+                </div>
 
-        <div class="service-card">
-            <div class="service-image">
-                <img src="images/speech-therapy.jpg" alt="Speech Therapy" />
-            </div>
-            <div class="service-content">
-                <h3>Speech Therapy</h3>
-                <p>Evidence-based speech and language therapy for children and adults addressing articulation, fluency, voice, and communication disorders.</p>
-                <a href="#" class="service-link" onclick="showPage('services')">Learn More →</a>
-            </div>
-        </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/speech-therapy.jpg" alt="Speech Therapy" />
+                    </div>
+                    <div class="service-content">
+                        <h3>Speech Therapy</h3>
+                        <p>Evidence-based speech and language therapy for children and adults addressing articulation, fluency, voice, and communication disorders.</p>
+                        <a href="#" class="service-link" onclick="showPage('services')">Learn More →</a>
+                    </div>
+                </div>
 
-        <div class="service-card">
-            <div class="service-image">
-                <img src="images/tinnitus.jpg" alt="Tinnitus Management" />
-            </div>
-            <div class="service-content">
-                <h3>Tinnitus Management</h3>
-                <p>Comprehensive tinnitus evaluation and personalized treatment plans including sound therapy, counseling, and management strategies.</p>
-                <a href="#" class="service-link" onclick="showPage('services')">Learn More →</a>
-            </div>
-        </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/tinnitus.jpg" alt="Tinnitus Management" />
+                    </div>
+                    <div class="service-content">
+                        <h3>Tinnitus Management</h3>
+                        <p>Comprehensive tinnitus evaluation and personalized treatment plans including sound therapy, counseling, and management strategies.</p>
+                        <a href="#" class="service-link" onclick="showPage('services')">Learn More →</a>
+                    </div>
+                </div>
 
-        <div class="service-card">
-            <div class="service-image">
-                <img src="images/diagnostic.jpg" alt="Diagnostic Testing" />
-            </div>
-            <div class="service-content">
-                <h3>Diagnostic Testing</h3>
-                <p>Complete diagnostic evaluations including impedance audiometry, speech audiometry, and specialized tests for vestibular function.</p>
-                <a href="#" class="service-link" onclick="showPage('services')">Learn More →</a>
-            </div>
-        </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/diagnostic.jpg" alt="Diagnostic Testing" />
+                    </div>
+                    <div class="service-content">
+                        <h3>Diagnostic Testing</h3>
+                        <p>Complete diagnostic evaluations including impedance audiometry, speech audiometry, and specialized tests for vestibular function.</p>
+                        <a href="#" class="service-link" onclick="showPage('services')">Learn More →</a>
+                    </div>
+                </div>
 
-    </div>
-</section>
+            </div>
+        </section>
 
         <!-- Testimonials -->
         <section class="testimonials-section">
@@ -1251,10 +156,12 @@
                 <h2 class="section-title">What Our Patients Say</h2>
                 <p class="section-description">Real experiences from families we've helped on their journey to better hearing and communication.</p>
             </div>
+
             <div class="testimonials-container">
+
                 <div class="testimonial-card">
                     <div class="quote-icon">"</div>
-                    <p class="testimonial-text">The team at SuPav Clinic changed my life. After years of struggling with hearing loss, they fitted me with the perfect hearing aids. Now I can enjoy conversations with my grandchildren again. The care and professionalism are outstanding!</p>
+                    <p class="testimonial-text">The team at SuPav Clinic changed my life. After years of struggling with hearing loss, they fitted me with the perfect hearing aids...</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">RK</div>
                         <div class="author-info">
@@ -1264,9 +171,10 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="testimonial-card">
                     <div class="quote-icon">"</div>
-                    <p class="testimonial-text">My daughter received excellent speech therapy here. The therapist was incredibly patient, skilled, and made each session fun and engaging. We've seen remarkable progress in just a few months. Highly recommended!</p>
+                    <p class="testimonial-text">My daughter received excellent speech therapy here. The therapist was incredibly patient...</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">PS</div>
                         <div class="author-info">
@@ -1276,9 +184,10 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="testimonial-card">
                     <div class="quote-icon">"</div>
-                    <p class="testimonial-text">Professional service with state-of-the-art equipment. The audiometry test was thorough and the results were explained clearly. The staff is friendly and the clinic is very clean and modern. Very satisfied!</p>
+                    <p class="testimonial-text">Professional service with state-of-the-art equipment...</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">AV</div>
                         <div class="author-info">
@@ -1288,6 +197,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
     </div>
@@ -1300,200 +210,218 @@
                 <h2 class="section-title">Your Trusted Healthcare Partner</h2>
                 <p class="section-description">Committed to excellence in hearing and speech care for over a decade.</p>
             </div>
+
             <div class="about-content">
                 <div class="about-image-grid">
                     <div class="about-img large">
-                        <img src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=600&h=350&fit=crop" alt="Modern clinic interior with advanced medical equipment and comfortable patient areas">
+                        <img src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b" alt="">
                     </div>
                     <div class="about-img">
-                        <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=300&h=250&fit=crop" alt="Professional audiologist conducting hearing test with patient">
+                        <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b" alt="">
                     </div>
                     <div class="about-img">
-                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=300&h=250&fit=crop" alt="Speech therapist working with child in colorful therapy room">
+                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54" alt="">
                     </div>
                 </div>
+
                 <div class="about-text">
                     <h3>Leading the Way in Hearing & Speech Healthcare</h3>
-                    <p>SuPav Speech Therapy & Hearing Aid Clinic has been serving the Ghaziabad community for over 10 years, providing comprehensive audiology and speech therapy services with compassion and clinical excellence.</p>
+                    <p>SuPav Speech Therapy & Hearing Aid Clinic has been serving the Ghaziabad community for over 10 years...</p>
+
                     <div class="about-features">
+
                         <div class="feature-item">
                             <div class="feature-icon">🎯</div>
                             <div class="feature-text">
                                 <h4>Our Mission</h4>
-                                <p>To provide accessible, comprehensive, and compassionate hearing and speech therapy services to improve quality of life for individuals of all ages through evidence-based practices and cutting-edge technology.</p>
+                                <p>To provide accessible, comprehensive, and compassionate hearing and speech therapy services...</p>
                             </div>
                         </div>
+
                         <div class="feature-item">
                             <div class="feature-icon">👁️</div>
                             <div class="feature-text">
                                 <h4>Our Vision</h4>
-                                <p>To be the leading hearing and speech healthcare provider in the region, recognized for clinical excellence, patient-centered care, and innovation in audiological and speech therapy services.</p>
+                                <p>To be the leading hearing and speech healthcare provider in the region...</p>
                             </div>
                         </div>
+
                         <div class="feature-item">
                             <div class="feature-icon">💎</div>
                             <div class="feature-text">
                                 <h4>Our Values</h4>
-                                <p>Compassion, Excellence, Integrity, and Innovation guide everything we do. We believe every patient deserves personalized care delivered with respect and professionalism.</p>
+                                <p>Compassion, Excellence, Integrity, and Innovation guide everything we do...</p>
                             </div>
                         </div>
+
                     </div>
+
                     <a href="#" class="btn btn-primary" onclick="showPage('contact')"><span>Schedule a Visit</span></a>
                 </div>
+
             </div>
+
         </section>
     </div>
 
     <!-- Services Page -->
     <div class="page" id="services">
-        <section class="services-section" style="padding-top: 150px;">
+        <section class="services-section" style="padding-top:150px;">
             <div class="section-header">
                 <div class="section-badge">What We Offer</div>
                 <h2 class="section-title">Complete Hearing & Speech Solutions</h2>
                 <p class="section-description">Comprehensive diagnostic and therapeutic services for all your hearing and communication needs.</p>
             </div>
+
             <div class="services-grid">
+
                 <div class="service-card">
-                    <div class="service-image">🎵</div>
-                    <div class="service-content">
-                        <h3>Pure Tone Audiometry</h3>
-                        <p>Gold standard hearing test that determines the softest sounds you can hear at different frequencies. Essential for diagnosing hearing loss type and severity. Quick, painless, and accurate assessment.</p>
-                        <a href="#" class="service-link" onclick="showPage('contact')">Book Test →</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">📊</div>
-                    <div class="service-content">
-                        <h3>B.E.R.A/ASSR/OAE Testing</h3>
-                        <p>Advanced electrophysiological tests perfect for infants, young children, and patients who cannot respond to traditional testing. Objective measurement of auditory pathway function.</p>
-                        <a href="#" class="service-link" onclick="showPage('contact')">Book Test →</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">🔧</div>
-                    <div class="service-content">
-                        <h3>Hearing Aid Repair & Maintenance</h3>
-                        <p>Expert repair services for all hearing aid brands and models. Quick turnaround, quality parts, and thorough testing. Regular maintenance programs available to keep your devices performing optimally.</p>
-                        <a href="#" class="service-link" onclick="showPage('contact')">Get Service →</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">🎧</div>
-                    <div class="service-content">
-                        <h3>Hearing Aid Fitting & Programming</h3>
-                        <p>Personalized hearing aid selection based on your hearing loss, lifestyle, and budget. Professional fitting and real-ear verification. Ongoing adjustments and support included.</p>
-                        <a href="#" class="service-link" onclick="showPage('contact')">Get Started →</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">💬</div>
-                    <div class="service-content">
-                        <h3>Speech & Language Therapy</h3>
-                        <p>Comprehensive evaluation and treatment for articulation disorders, language delays, stuttering, voice disorders, and aphasia. Individualized therapy plans for children and adults.</p>
-                        <a href="#" class="service-link" onclick="showPage('contact')">Book Session →</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">👂</div>
-                    <div class="service-content">
-                        <h3>Tinnitus Management</h3>
-                        <p>Comprehensive evaluation and personalized treatment for ringing in the ears. Sound therapy, counseling, hearing aids with masking features, and coping strategies.</p>
-                        <a href="#" class="service-link" onclick="showPage('contact')">Get Help →</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">🔬</div>
-                    <div class="service-content">
-                        <h3>Impedance Audiometry</h3>
-                        <p>Objective test assessing middle ear function, eardrum mobility, and acoustic reflexes. Essential for diagnosing middle ear problems and verifying hearing aid fitting.</p>
-                        <a href="#" class="service-link" onclick="showPage('contact')">Book Test →</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">🗣️</div>
-                    <div class="service-content">
-                        <h3>Speech Audiometry</h3>
-                        <p>Assesses speech recognition ability at different volume levels. Helps determine how well you understand speech in quiet and noisy environments.</p>
-                        <a href="#" class="service-link" onclick="showPage('contact')">Book Test →</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">👨‍👩‍👧</div>
-                    <div class="service-content">
-                        <h3>Pediatric Services</h3>
-                        <p>Specialized care for children with hearing loss and speech disorders. Child-friendly environment, play-based therapy, and family counseling to support development.</p>
-                        <a href="#" class="service-link" onclick="showPage('contact')">Learn More →</a>
-                    </div>
-                </div>
+    <div class="service-image">
+        <img src="images/pure-tone.jpg" alt="Pure Tone Audiometry">
+    </div>
+    <div class="service-content">
+        <h3>Pure Tone Audiometry</h3>
+        <p>Gold standard hearing test that determines the softest sounds you can hear...</p>
+        <a href="#" class="service-link" onclick="showPage('contact')">Book Test →</a>
+    </div>
+</div>
+
+<div class="service-card">
+    <div class="service-image">
+        <img src="images/bera.jpg" alt="BERA / ASSR / OAE Testing">
+    </div>
+    <div class="service-content">
+        <h3>B.E.R.A/ASSR/OAE Testing</h3>
+        <p>Advanced electrophysiological tests perfect for infants, young children...</p>
+        <a href="#" class="service-link" onclick="showPage('contact')">Book Test →</a>
+    </div>
+</div>
+
+<div class="service-card">
+    <div class="service-image">
+        <img src="images/diagnostic.jpg" alt="Hearing Aid Maintenance & Diagnostic">
+    </div>
+    <div class="service-content">
+        <h3>Hearing Aid Repair & Maintenance</h3>
+        <p>Expert repair services for all hearing aid brands and models...</p>
+        <a href="#" class="service-link" onclick="showPage('contact')">Get Service →</a>
+    </div>
+</div>
+
+<div class="service-card">
+    <div class="service-image">
+        <img src="images/hearing-aid.jpg" alt="Hearing Aid Fitting">
+    </div>
+    <div class="service-content">
+        <h3>Hearing Aid Fitting & Programming</h3>
+        <p>Personalized hearing aid selection based on your hearing loss...</p>
+        <a href="#" class="service-link" onclick="showPage('contact')">Get Started →</a>
+    </div>
+</div>
+
+<div class="service-card">
+    <div class="service-image">
+        <img src="images/speech-therapy.jpg" alt="Speech and Language Therapy">
+    </div>
+    <div class="service-content">
+        <h3>Speech & Language Therapy</h3>
+        <p>Comprehensive evaluation and treatment for articulation disorders...</p>
+        <a href="#" class="service-link" onclick="showPage('contact')">Book Session →</a>
+    </div>
+</div>
+
+<div class="service-card">
+    <div class="service-image">
+        <img src="images/tinnitus.jpg" alt="Tinnitus Management">
+    </div>
+    <div class="service-content">
+        <h3>Tinnitus Management</h3>
+        <p>Comprehensive evaluation and personalized treatment...</p>
+        <a href="#" class="service-link" onclick="showPage('contact')">Get Help →</a>
+    </div>
+</div>
+
+
             </div>
         </section>
     </div>
 
     <!-- Gallery Page -->
     <div class="page" id="gallery">
-        <section class="gallery-section" style="padding-top: 150px;">
+        <section class="gallery-section" style="padding-top:150px;">
             <div class="section-header">
                 <div class="section-badge">Our Facility</div>
                 <h2 class="section-title">Modern Clinic & Equipment</h2>
                 <p class="section-description">Take a virtual tour of our state-of-the-art facility designed for your comfort and care.</p>
             </div>
+
             <div class="gallery-grid">
+
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400&h=350&fit=crop" alt="Modern clinic reception area with comfortable seating and welcoming atmosphere">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400&h=350&fit=crop" alt="">
                     <div class="gallery-overlay">
                         <h3>Reception Area</h3>
                         <p>Welcoming and comfortable</p>
                     </div>
                 </div>
+
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=400&h=350&fit=crop" alt="Soundproof audiometry booth with advanced testing equipment">
+                    <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=400&h=350&fit=crop" alt="">
                     <div class="gallery-overlay">
                         <h3>Audiometry Room</h3>
                         <p>State-of-the-art testing</p>
                     </div>
                 </div>
+
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&h=350&fit=crop" alt="Colorful speech therapy room with educational materials and toys">
+                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&h=350&fit=crop" alt="">
                     <div class="gallery-overlay">
                         <h3>Speech Therapy Room</h3>
                         <p>Child-friendly environment</p>
                     </div>
                 </div>
+
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=400&h=350&fit=crop" alt="Professional consultation room with modern furnishings">
+                    <img src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=400&h=350&fit=crop" alt="">
                     <div class="gallery-overlay">
                         <h3>Consultation Room</h3>
                         <p>Private and professional</p>
                     </div>
                 </div>
+
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=400&h=350&fit=crop" alt="Display of various hearing aid models and accessories">
+                    <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=400&h=350&fit=crop" alt="">
                     <div class="gallery-overlay">
                         <h3>Hearing Aid Center</h3>
                         <p>Latest technology</p>
                     </div>
                 </div>
+
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400&h=350&fit=crop" alt="Comfortable waiting area with magazines and refreshments">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400&h=350&fit=crop" alt="">
                     <div class="gallery-overlay">
                         <h3>Waiting Area</h3>
                         <p>Relaxing space</p>
                     </div>
                 </div>
+
             </div>
         </section>
     </div>
 
     <!-- Contact Page -->
     <div class="page" id="contact">
-        <section class="contact-section" style="padding-top: 150px;">
+        <section class="contact-section" style="padding-top:150px;">
             <div class="section-header">
                 <div class="section-badge">Get In Touch</div>
                 <h2 class="section-title">Contact Us Today</h2>
                 <p class="section-description">We're here to answer your questions and schedule your appointment.</p>
             </div>
+
             <div class="contact-container">
+
                 <div class="contact-info">
+
                     <div class="info-card">
                         <div class="info-card-header">
                             <div class="info-icon">📍</div>
@@ -1501,6 +429,7 @@
                         </div>
                         <p>123 Medical Complex, Vaishali<br>Sector 4, Ghaziabad<br>Uttar Pradesh 201012<br>India</p>
                     </div>
+
                     <div class="info-card">
                         <div class="info-card-header">
                             <div class="info-icon">📞</div>
@@ -1508,6 +437,7 @@
                         </div>
                         <p>Main: +91-9876-543-210<br>Appointments: +91-9876-543-211<br>Emergency: +91-9876-543-212</p>
                     </div>
+
                     <div class="info-card">
                         <div class="info-card-header">
                             <div class="info-icon">✉️</div>
@@ -1515,6 +445,7 @@
                         </div>
                         <p>info@supavclinic.com<br>appointments@supavclinic.com<br>support@supavclinic.com</p>
                     </div>
+
                     <div class="info-card">
                         <div class="info-card-header">
                             <div class="info-icon">🕐</div>
@@ -1522,9 +453,12 @@
                         </div>
                         <p>Monday - Saturday<br>9:00 AM - 7:00 PM<br><br>Sunday<br>10:00 AM - 2:00 PM</p>
                     </div>
+
                 </div>
+
                 <form class="contact-form" id="contactForm">
-                    <h3 style="margin-bottom: 1.5rem; color: var(--text);">Book an Appointment</h3>
+                    <h3 style="margin-bottom: 1.5rem;">Book an Appointment</h3>
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="fname">First Name *</label>
@@ -1535,6 +469,7 @@
                             <input type="text" id="lname" required placeholder="Enter last name">
                         </div>
                     </div>
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="phone">Phone Number *</label>
@@ -1545,6 +480,7 @@
                             <input type="email" id="email" placeholder="your@email.com">
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label for="service">Service Required *</label>
                         <select id="service" required>
@@ -1559,29 +495,36 @@
                             <option value="other">Other</option>
                         </select>
                     </div>
+
                     <div class="form-group">
                         <label for="message">Additional Information</label>
                         <textarea id="message" placeholder="Tell us about your concerns or questions..."></textarea>
                     </div>
+
                     <button type="submit" class="submit-btn">Book Appointment</button>
                 </form>
+
             </div>
+
         </section>
     </div>
 
     <!-- Footer -->
     <footer>
         <div class="footer-content">
+
             <div class="footer-section">
                 <h3>SuPav Clinic</h3>
-                <p>Leading provider of hearing and speech therapy services in Ghaziabad. Committed to excellence in patient care with state-of-the-art facilities and compassionate professionals.</p>
+                <p>Leading provider of hearing and speech therapy services in Ghaziabad...</p>
                 <div class="social-links">
-                    <div class="social-icon">📘</div>
-                    <div class="social-icon">📷</div>
-                    <div class="social-icon">🐦</div>
-                    <div class="social-icon">📹</div>
-                </div>
+    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+</div>
+
             </div>
+
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <a href="#" onclick="showPage('home')">Home</a>
@@ -1590,6 +533,7 @@
                 <a href="#" onclick="showPage('gallery')">Gallery</a>
                 <a href="#" onclick="showPage('contact')">Contact</a>
             </div>
+
             <div class="footer-section">
                 <h3>Our Services</h3>
                 <a href="#" onclick="showPage('services')">Audiometry Testing</a>
@@ -1598,6 +542,7 @@
                 <a href="#" onclick="showPage('services')">Tinnitus Management</a>
                 <a href="#" onclick="showPage('services')">Pediatric Care</a>
             </div>
+
             <div class="footer-section">
                 <h3>Contact Info</h3>
                 <p>📍 Vaishali, Ghaziabad, UP</p>
@@ -1605,10 +550,13 @@
                 <p>✉️ info@supavclinic.com</p>
                 <p>🕐 Mon-Sat: 9AM-7PM</p>
             </div>
+
         </div>
+
         <div class="footer-bottom">
             <p>&copy; 2025 SuPav Speech Therapy & Hearing Aid Clinic. All rights reserved.</p>
         </div>
+
     </footer>
 
     <!-- Structured Data -->
@@ -1627,342 +575,12 @@
             "addressCountry": "IN"
         },
         "telephone": "+91-9876-543-210",
-        "email": "info@supavclinic.com",
-        "openingHoursSpecification": [
-            {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-                "opens": "09:00",
-                "closes": "19:00"
-            }
-        ]
+        "email": "info@supavclinic.com"
     }
     </script>
 
-    <script>
-        // Loading Screen
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loading').classList.add('hide');
-            }, 1000);
-        });
+    <!-- External JS -->
+    <script src="script.js"></script>
 
-        // Mobile Navigation
-        const mobileToggle = document.getElementById('mobileToggle');
-        const navMenu = document.getElementById('navMenu');
-
-        mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            mobileToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
-        });
-
-        // Page Navigation
-        function showPage(pageName) {
-            // Hide all pages
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            
-            // Show selected page
-            document.getElementById(pageName).classList.add('active');
-            
-            // Update nav links
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-                if (link.dataset.page === pageName) {
-                    link.classList.add('active');
-                }
-            });
-            
-            // Close mobile menu
-            navMenu.classList.remove('active');
-            mobileToggle.textContent = '☰';
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-            // Animate service cards
-            if (pageName === 'services' || pageName === 'home') {
-                setTimeout(() => {
-                    const cards = document.querySelectorAll('.service-card');
-                    cards.forEach((card, index) => {
-                        setTimeout(() => {
-                            card.classList.add('visible');
-                        }, index * 100);
-                    });
-                }, 100);
-            }
-        }
-
-        // Navigation Links
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const page = link.dataset.page;
-                if (page) {
-                    showPage(page);
-                }
-            });
-        });
-
-        // Navbar Scroll Effect
-        let lastScroll = 0;
-        const navbar = document.getElementById('navbar');
-
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-            
-            lastScroll = currentScroll;
-        });
-
-        // Intersection Observer for Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe service cards
-        document.querySelectorAll('.service-card').forEach(card => {
-            observer.observe(card);
-        });
-
-        // Form Submission
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = {
-                firstName: document.getElementById('fname').value,
-                lastName: document.getElementById('lname').value,
-                phone: document.getElementById('phone').value,
-                email: document.getElementById('email').value,
-                service: document.getElementById('service').value,
-                message: document.getElementById('message').value
-            };
-            
-            // Show success message
-            alert('Thank you for booking an appointment! We will contact you shortly to confirm your booking.');
-            
-            // Reset form
-            e.target.reset();
-        });
-
-        // Smooth Scroll for Internal Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                }
-            });
-        });
-
-        // Initialize animations on load
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.querySelectorAll('.service-card').forEach((card, index) => {
-                    setTimeout(() => {
-                        card.classList.add('visible');
-                    }, index * 100);
-                });
-            }, 500);
-        });
-
-        // Gallery Image Click
-        document.querySelectorAll('.gallery-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const overlay = item.querySelector('.gallery-overlay');
-                if (overlay) {
-                    const title = overlay.querySelector('h3').textContent;
-                    alert(`Viewing: ${title}\n\nClick OK to continue browsing the gallery.`);
-                }
-            });
-        });
-
-        // Parallax Effect for Hero
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            if (hero && scrolled < window.innerHeight) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
-
-        // Floating Icons Animation
-        const floatingIcons = document.querySelectorAll('.floating-icon');
-        floatingIcons.forEach((icon, index) => {
-            icon.style.animationDelay = `${index * 2}s`;
-        });
-
-        // Button Ripple Effect
-        document.querySelectorAll('.btn').forEach(button => {
-            button.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.width = ripple.style.height = size + 'px';
-                ripple.style.left = x + 'px';
-                ripple.style.top = y + 'px';
-                ripple.classList.add('ripple');
-                
-                this.appendChild(ripple);
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-            });
-        });
-
-        // Testimonial Cards Hover Effect
-        document.querySelectorAll('.testimonial-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Service Card Icon Rotation
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                const icon = card.querySelector('.service-image');
-                icon.style.transform = 'scale(1.1) rotate(5deg)';
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                const icon = card.querySelector('.service-image');
-                icon.style.transform = 'scale(1) rotate(0deg)';
-            });
-        });
-
-        // Auto-update current year in footer
-        const currentYear = new Date().getFullYear();
-        document.querySelector('.footer-bottom p').textContent = 
-            `© ${currentYear} SuPav Speech Therapy & Hearing Aid Clinic. All rights reserved.`;
-
-        // Lazy Loading for Gallery Images
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.style.opacity = '1';
-                        observer.unobserve(img);
-                    }
-                });
-            });
-
-            document.querySelectorAll('.gallery-item img, .about-img img').forEach(img => {
-                img.style.opacity = '0';
-                img.style.transition = 'opacity 0.5s ease';
-                imageObserver.observe(img);
-            });
-        }
-
-        // Add entrance animation to info cards
-        const infoCards = document.querySelectorAll('.info-card');
-        const infoObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateX(0)';
-                    }, index * 100);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        infoCards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateX(-30px)';
-            card.style.transition = 'all 0.5s ease';
-            infoObserver.observe(card);
-        });
-
-        // Add pulse animation to contact icon
-        setInterval(() => {
-            const contactIcon = document.querySelector('.contact-icon');
-            if (contactIcon) {
-                contactIcon.style.animation = 'none';
-                setTimeout(() => {
-                    contactIcon.style.animation = 'pulse 2s ease infinite';
-                }, 10);
-            }
-        }, 5000);
-
-        // Feature items entrance animation
-        const featureObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, index * 150);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.feature-item').forEach(item => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(20px)';
-            item.style.transition = 'all 0.5s ease';
-            featureObserver.observe(item);
-        });
-
-        // Social icons hover effect
-        document.querySelectorAll('.social-icon').forEach(icon => {
-            icon.addEventListener('click', () => {
-                icon.style.animation = 'pulse 0.5s ease';
-                setTimeout(() => {
-                    icon.style.animation = '';
-                }, 500);
-            });
-        });
-
-        // Form input focus effects
-        document.querySelectorAll('input, textarea, select').forEach(input => {
-            input.addEventListener('focus', function() {
-                this.parentElement.style.transform = 'translateY(-2px)';
-            });
-            
-            input.addEventListener('blur', function() {
-                this.parentElement.style.transform = 'translateY(0)';
-            });
-        });
-
-        // Prevent default for logo click
-        document.querySelector('.logo').addEventListener('click', (e) => {
-            e.preventDefault();
-            showPage('home');
-        });
-
-        console.log('SuPav Clinic Website Loaded Successfully! 🎉');
-    </script>
 </body>
 </html>
